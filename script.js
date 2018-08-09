@@ -1,13 +1,21 @@
 function CoffeeMachine(power) {
-    let waterAmount = 0;
-    let seedsAmount = 0;
+    let waterAmount = 100;
+    let seedsAmount = 16;
     const maxTemp = 90;
     const waterHeatCapacity = 4200;
+    let timeoutId;
 
     this.addWater = function (newAmount) {
         waterAmount += newAmount;
     }
+    
+    this.getWaterAmount = function() {
+        console.log(waterAmount);
+    }
 
+    this.getSeedsAmount = function() {
+        console.log(seedsAmount);
+    }
 
     this.addSeeds = function (seeds) {
         seedsAmount += seeds;
@@ -30,15 +38,16 @@ function CoffeeMachine(power) {
                 console.log('water is heating...');
                 waterAmount -= 50;
                 seedsAmount -= 8;
-                setTimeout(function() {console.log('Coffee is done')}, calcBoilTime());
+           
+                timeoutId = setTimeout(function() {console.log('Coffee is done')}, calcBoilTime());
             }
+    }
+    this.stop = function () {
+        clearInterval(timeoutId);
     }
 }
 
 const vitek = new CoffeeMachine(3500);
-vitek.addWater(100);
-vitek.addSeeds(16);
-vitek.launch();
-vitek.launch();
-vitek.launch();
 
+const infoBlock = document.getElementsByClassName('info')[0];
+infoBlock.innerText = 'water: ' + vitek.getWaterAmount() + 'ml';
