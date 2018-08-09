@@ -31,9 +31,11 @@ function CoffeeMachine(power) {
 
     this.launch = function () {
             if (waterAmount < 50) {
-                console.log('Not enough water')
+                console.log('Not enough water');
+                waterMessage();
             } else if (seedsAmount < 8) {
-                console.log('Not enough seeds')
+                console.log('Not enough seeds');
+                seedsMessage();
             } else {
                 console.log('water is heating...');
                 inProcessMessage();
@@ -99,4 +101,11 @@ function finalMessage() {
 
 function stopMessage() {
     processBlock.innerHTML = 'Process stopped';
+}
+
+function waterMessage() {
+    processBlock.innerHTML = 'Add some water, please';
+}
+function seedsMessage() {
+    processBlock.innerHTML = 'Add some seeds, please';
 }

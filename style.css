@@ -12,24 +12,25 @@ section {
     width: 500px;
     margin: auto;
     height: 100%;
-    padding: 10px 30px;
+    padding: 10px 30px 0 10px;
 }
 
 .grid-wrapper {
     display: grid;
     grid-template: 'btns info' 
-                    'process process'
+                    'process process'/ 50% 50%;
 }
 
 button {
-    display: block;
-    width: 150px;
+    display: inline-block;
+    width: 200px;
     height: 40px;
     margin: 5px 0;
 }
 
 .buttons-wrapper {
     grid-area: btns;
+    text-align: center;
 }
 
 .info {
@@ -41,7 +42,7 @@ button {
 
 .processing {
     margin: 20px 0 0;
-    line-height: 50px;
+    line-height: 100px;
     text-align: center;
     grid-area: process;
 }
